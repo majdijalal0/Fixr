@@ -4,6 +4,9 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 dotenv.config(); 
 
+const app = express();
+app.use(express.json());
+
 app.use(cors({
   origin: process.env.FRONTEND_URL, 
   credentials: true
@@ -16,8 +19,6 @@ const bookingRoutes = require('./routes/bookingRoutes');
 
 connectdb();
 
-const app = express();
-app.use(express.json());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/workers', workerRoutes);
