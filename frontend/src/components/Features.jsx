@@ -1,27 +1,17 @@
 import React from 'react';
-import { Shield, Zap, DollarSign, Star } from 'lucide-react';
+import { Shield, Star } from 'lucide-react';
 
 const Features = () => {
   const features = [
     {
       title: 'Verified Professionals',
       description: 'Every expert is thoroughly vetted and quality-checked before joining our platform.',
-      icon: <Shield size={32} className="text-amber-500" />
-    },
-    {
-      title: 'Lightning Fast',
-      description: 'Find help in minutes. We connect you with available pros right in your neighborhood.',
-      icon: <Zap size={32} className="text-amber-500" />
-    },
-    {
-      title: 'Upfront Pricing',
-      description: 'No hidden fees. Transparent, highly competitive rates you can review before booking.',
-      icon: <DollarSign size={32} className="text-amber-500" />
+      icon: <Shield size={24} className="text-amber-500" />
     },
     {
       title: 'Satisfaction Guaranteed',
       description: 'Our top-rated workers maintain excellent ratings to stay on our network.',
-      icon: <Star size={32} className="text-amber-500" />
+      icon: <Star size={24} className="text-amber-500" />
     }
   ];
 
@@ -38,16 +28,16 @@ const Features = () => {
           </h1>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {features.map((feat, idx) => (
             <div 
               key={idx} 
-              className={`glass flex flex-col items-center text-center p-8 rounded-[2rem] hover:-translate-y-2 transition-transform duration-300 stagger-${idx + 1}`}
+              className="bg-white border-l-4 border-amber-500 p-8 shadow-sm rounded-r-2xl hover:shadow-md transition-shadow duration-300"
             >
-              <div className="mb-6 p-4 bg-amber-50 rounded-2xl shadow-inner inline-flex">
+              <div className="flex items-center gap-4 mb-4">
                 {feat.icon}
+                <h3 className="text-xl font-bold text-slate-800">{feat.title}</h3>
               </div>
-              <h3 className="text-xl font-bold text-slate-800 mb-4">{feat.title}</h3>
               <p className="text-slate-500 leading-relaxed text-sm">
                 {feat.description}
               </p>

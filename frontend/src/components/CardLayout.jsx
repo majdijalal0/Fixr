@@ -91,7 +91,7 @@ const CardLayout = ({ selectedServiceId }) => {
           <h2 className='text-3xl font-bold text-slate-800'>
             {selectedServiceId === 'all' ? 'All Professionals' : `${selectedServiceId.charAt(0).toUpperCase() + selectedServiceId.slice(1)} Experts`}
           </h2>
-          <p className='text-slate-500'>Found {sortedWorkers.length} results</p>
+          <p className='text-slate-500'>Found {sortedWorkers.length} {sortedWorkers.length === 1 ? 'result' : 'results'}</p>
         </div>
       </div>
 

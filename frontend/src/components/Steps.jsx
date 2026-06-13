@@ -42,7 +42,7 @@ const Steps = () => {
           </h1>
         </div>
         <p className='text-slate-500 max-w-md text-lg'>
-          Getting your home projects done is easier than ever. Just four simple steps to peace of mind.
+          Getting your home projects done is easier than ever. Book a trusted professional in minutes.
         </p>
       </div>
 
