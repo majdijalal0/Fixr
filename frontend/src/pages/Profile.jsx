@@ -218,17 +218,17 @@ const Profile = () => {
   const isWorker = user.role === 'worker';
 
   return (
-    <div className="min-h-screen pt-24 pb-16 bg-slate-50">
+    <div className="min-h-screen pt-20 md:pt-24 pb-16 bg-slate-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="mb-8 overflow-hidden bg-white shadow-sm rounded-3xl border border-slate-100"
         >
-          <div className="h-32 bg-gradient-mesh"></div>
-          <div className="relative px-6 pb-6 sm:px-8">
-            <div className="flex flex-col sm:flex-row items-center sm:items-end -mt-12 sm:-mt-16 gap-6">
-              <div className="w-24 h-24 sm:w-32 sm:h-32 bg-white rounded-full p-1.5 shadow-lg shrink-0">
+          <div className="h-24 md:h-32 bg-gradient-mesh"></div>
+          <div className="relative px-4 md:px-6 pb-6 sm:px-8">
+            <div className="flex flex-col sm:flex-row items-center sm:items-end -mt-12 sm:-mt-16 gap-4 md:gap-6">
+              <div className="w-20 h-20 md:w-24 md:h-24 sm:w-32 sm:h-32 bg-white rounded-full p-1.5 shadow-lg shrink-0">
                 <img
                   src={
                     (isWorker && (profileImageFile
@@ -241,15 +241,15 @@ const Profile = () => {
                 />
               </div>
               <div className="flex-1 text-center sm:text-left">
-                <h1 className="text-3xl font-bold text-slate-900">{user.name}</h1>
-                <p className="text-slate-500 font-medium mt-1 flex items-center justify-center sm:justify-start gap-2">
+                <h1 className="text-2xl md:text-3xl font-bold text-slate-900">{user.name}</h1>
+                <p className="text-slate-500 font-medium mt-1 flex items-center justify-center sm:justify-start gap-2 text-sm md:text-base">
                   <Briefcase className="w-4 h-4" />
                   {isWorker ? 'Professional Worker' : 'Customer Account'}
                 </p>
               </div>
               <button 
                 onClick={handleLogout}
-                className="btn-outline gap-2 mt-4 sm:mt-0"
+                className="btn-outline gap-2 mt-4 sm:mt-0 w-full sm:w-auto"
               >
                 <LogOut className="w-5 h-5" />
                 Logout
@@ -258,7 +258,7 @@ const Profile = () => {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 md:gap-8">
           
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
@@ -269,7 +269,7 @@ const Profile = () => {
             <div className="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm space-y-2">
               <button 
                 onClick={() => setActiveTab('bookings')}
-                className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-colors font-medium ${activeTab === 'bookings' ? 'bg-amber-50 text-amber-700' : 'text-slateate-600 hover:bg-slate-50'}`}
+                className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-colors font-medium ${activeTab === 'bookings' ? 'bg-amber-50 text-amber-700' : 'text-slate-600 hover:bg-slate-50'}`}
               >
                 <Briefcase className="w-5 h-5" />
                 {isWorker ? 'Job Requests' : 'My Bookings'}
@@ -306,10 +306,10 @@ const Profile = () => {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  className="space-y-6"
+                  className="space-y-4 md:space-y-6"
                 >
-                  <div className="flex justify-between items-center mb-6">
-                    <h2 className="text-2xl font-bold text-slate-900">
+                  <div className="flex justify-between items-center mb-4 md:mb-6">
+                    <h2 className="text-xl md:text-2xl font-bold text-slate-900">
                       {isWorker ? 'Incoming Job Requests' : 'Booking History'}
                     </h2>
                   </div>
@@ -319,27 +319,27 @@ const Profile = () => {
                       <Loader2 className="w-8 h-8 text-amber-500 animate-spin" />
                     </div>
                   ) : bookings.length === 0 ? (
-                    <div className="text-center py-16 bg-white rounded-3xl border border-slate-100 shadow-sm">
-                      <div className="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <Calendar className="w-8 h-8 text-slate-400" />
+                    <div className="text-center py-12 md:py-16 bg-white rounded-3xl border border-slate-100 shadow-sm">
+                      <div className="w-14 md:w-16 h-14 md:h-16 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <Calendar className="w-7 md:w-8 h-7 md:h-8 text-slate-400" />
                       </div>
-                      <h3 className="text-lg font-bold text-slate-900 mb-2">No bookings yet</h3>
-                      <p className="text-slate-500">
+                      <h3 className="text-base md:text-lg font-bold text-slate-900 mb-2">No bookings yet</h3>
+                      <p className="text-sm md:text-base text-slate-500">
                         {isWorker ? "You don't have any job requests at the moment." : "You haven't made any service bookings yet."}
                       </p>
                     </div>
                   ) : (
                     <div className="space-y-4">
                       {bookings.map((booking) => (
-                        <div key={booking._id} className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm transition-all hover:shadow-md">
-                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+                        <div key={booking._id} className="bg-white rounded-2xl p-4 md:p-6 border border-slate-100 shadow-sm transition-all hover:shadow-md">
+                          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 md:gap-4 mb-4">
                             <div className="flex items-center gap-3">
-                              <div className="p-3 bg-slate-50 rounded-xl">
-                                <Briefcase className="w-6 h-6 text-slate-600" />
+                              <div className="p-2 md:p-3 bg-slate-50 rounded-xl">
+                                <Briefcase className="w-5 md:w-6 h-5 md:h-6 text-slate-600" />
                               </div>
                               <div>
-                                <h3 className="text-lg font-bold text-slate-900 capitalize">{booking.serviceType} Service</h3>
-                                <p className="text-slate-500 text-sm">Ref: #{booking._id.slice(-6).toUpperCase()}</p>
+                                <h3 className="text-base md:text-lg font-bold text-slate-900 capitalize">{booking.serviceType} Service</h3>
+                                <p className="text-xs md:text-sm text-slate-500">Ref: #{booking._id.slice(-6).toUpperCase()}</p>
                               </div>
                             </div>
                             <div>
@@ -348,11 +348,11 @@ const Profile = () => {
                           </div>
                           
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-4 border-t border-slate-100">
-                            <div className="space-y-3 gap-2 text-slate-600">
+                            <div className="space-y-3 gap-2 text-slate-600 text-sm md:text-base">
                               <p className="flex items-center gap-2"><Calendar className="w-4 h-4 text-slate-400"/> {new Date(booking.date).toLocaleDateString()}</p>
                               <p className="flex items-center gap-2"><MapPin className="w-4 h-4 text-slate-400"/> {booking.address}</p>
                             </div>
-                            <div className="space-y-3 text-slate-600 bg-slate-50 p-4 rounded-xl">
+                            <div className="space-y-3 text-slate-600 bg-slate-50 p-3 md:p-4 rounded-xl text-sm md:text-base">
                               <div className="flex items-center gap-2">
                                 <User className="w-4 h-4 text-slate-400"/>
                                 <span className="font-semibold text-slate-900">
@@ -400,7 +400,7 @@ const Profile = () => {
                             <div className="flex justify-end gap-3 mt-4 pt-4 border-t border-slate-100">
                               <button 
                                 onClick={() => handleStatusUpdate(booking._id, 'cancelled')}
-                                className="px-6 py-2 bg-red-50 text-red-700 hover:bg-red-100 font-semibold rounded-lg transition-colors"
+                                className="w-full sm:w-auto px-6 py-2 bg-red-50 text-red-700 hover:bg-red-100 font-semibold rounded-lg transition-colors"
                               >
                                 Cancel Request
                               </button>
@@ -419,21 +419,21 @@ const Profile = () => {
                  initial={{ opacity: 0, y: 10 }}
                  animate={{ opacity: 1, y: 0 }}
                  exit={{ opacity: 0, y: -10 }}
-                 className="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm"
+                 className="bg-white rounded-3xl p-6 md:p-8 border border-slate-100 shadow-sm"
                >
-                 <h2 className="text-2xl font-bold text-slate-900 mb-6">Account Settings</h2>
-                 <p className="text-slate-500 mb-8">Manage your profile information and preferences.</p>
+                 <h2 className="text-xl md:text-2xl font-bold text-slate-900 mb-6">Account Settings</h2>
+                 <p className="text-slate-500 mb-6 md:mb-8">Manage your profile information and preferences.</p>
                  
                  <div className="space-y-6 max-w-xl">
                    <div>
                      <label className="block text-sm font-medium text-slate-700 mb-1">Full Name</label>
-                     <input type="text" className="input-styled" defaultValue={user.name} disabled />
+                     <input type="text" className="input-styled w-full" defaultValue={user.name} disabled />
                    </div>
                    <div>
                      <label className="block text-sm font-medium text-slate-700 mb-1">Email Address</label>
                      <div className="relative">
-                       <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5"/>
-                       <input type="email" className="input-styled pl-11" defaultValue={user.email || 'user@example.com'} disabled />
+                       <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 w-4 md:w-5 h-4 md:h-5"/>
+                       <input type="email" className="input-styled w-full pl-11" defaultValue={user.email || 'user@example.com'} disabled />
                      </div>
                    </div>
                    {isWorker && (
@@ -454,12 +454,12 @@ const Profile = () => {
                   exit={{ opacity: 0, y: -10 }}
                   className="space-y-6"
                 >
-                  <div className="flex justify-between items-center">
-                    <h2 className="text-2xl font-bold text-slate-900">Edit Your Profile</h2>
+                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <h2 className="text-xl md:text-2xl font-bold text-slate-900">Edit Your Profile</h2>
                     <button
                       onClick={handleSaveProfile}
                       disabled={saveStatus === 'saving'}
-                      className="btn-primary gap-2"
+                      className="w-full sm:w-auto btn-primary gap-2"
                     >
                       {saveStatus === 'saving' ? (
                         <><Loader2 className="w-4 h-4 animate-spin" /> Saving…</>
@@ -476,18 +476,18 @@ const Profile = () => {
                     </div>
                   )}
 
-                  <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+                  <div className="bg-white rounded-2xl p-4 md:p-6 border border-slate-100 shadow-sm">
                     <h3 className="font-bold text-slate-900 mb-4 flex items-center gap-2"><User className="w-5 h-5 text-amber-500" /> Profile Photo</h3>
-                    <div className="flex items-center gap-6">
+                    <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-6">
                       <img
                         src={profileImageFile
                           ? URL.createObjectURL(profileImageFile)
                           : workerProfile?.profileImage
                           || `https://ui-avatars.com/api/?name=${encodeURIComponent(user.name)}&size=120&background=fef3c7&color=92400e&bold=true`}
                         alt="Profile"
-                        className="w-24 h-24 rounded-full object-cover ring-4 ring-amber-100 shadow"
+                        className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover ring-4 ring-amber-100 shadow"
                       />
-                      <div>
+                      <div className="text-center sm:text-left">
                         <input ref={profileImgRef} type="file" accept="image/*" className="hidden" onChange={e => setProfileImageFile(e.target.files[0])} />
                         <button
                           onClick={() => profileImgRef.current?.click()}
@@ -500,25 +500,25 @@ const Profile = () => {
                     </div>
                   </div>
 
-                  <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm space-y-5">
+                  <div className="bg-white rounded-2xl p-4 md:p-6 border border-slate-100 shadow-sm space-y-5">
                     <h3 className="font-bold text-slate-900 flex items-center gap-2"><PenLine className="w-5 h-5 text-amber-500" /> Professional Details</h3>
                     <div>
                       <label className="block text-sm font-bold text-slate-700 mb-2">About Me / Bio</label>
                       <textarea
                         rows={4}
                         placeholder="Describe your experience, skills, and what makes you stand out…"
-                        className="input-styled resize-none"
+                        className="input-styled resize-none w-full"
                         value={profileData.bio}
                         onChange={e => setProfileData(p => ({ ...p, bio: e.target.value }))}
                       />
                     </div>
-                    <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-sm font-bold text-slate-700 mb-2">Hourly Rate ($)</label>
                         <input
                           type="number"
                           placeholder="e.g. 40"
-                          className="input-styled"
+                          className="input-styled w-full"
                           value={profileData.hourlyRate}
                           onChange={e => setProfileData(p => ({ ...p, hourlyRate: e.target.value }))}
                         />
@@ -526,7 +526,7 @@ const Profile = () => {
                       <div>
                         <label className="block text-sm font-bold text-slate-700 mb-2">Years of Experience</label>
                         <select
-                          className="input-styled"
+                          className="input-styled w-full"
                           value={profileData.experience}
                           onChange={e => setProfileData(p => ({ ...p, experience: e.target.value }))}
                         >
@@ -540,8 +540,8 @@ const Profile = () => {
                     </div>
                   </div>
 
-                  <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
-                    <div className="flex justify-between items-center mb-4">
+                  <div className="bg-white rounded-2xl p-4 md:p-6 border border-slate-100 shadow-sm">
+                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4">
                       <h3 className="font-bold text-slate-900 flex items-center gap-2"><ImageIcon className="w-5 h-5 text-amber-500" /> Portfolio Gallery</h3>
                       <div>
                         <input ref={galleryRef} type="file" accept="image/*" multiple className="hidden" onChange={e => setGalleryFiles(Array.from(e.target.files))} />
@@ -599,7 +599,7 @@ const Profile = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ type: "spring", duration: 0.4 }}
-              className="relative w-full max-w-md bg-white rounded-[2.5rem] shadow-2xl p-8 border border-slate-100/80 overflow-hidden z-10"
+              className="relative w-full max-w-md bg-white rounded-[2.5rem] shadow-2xl p-6 md:p-8 border border-slate-100/80 overflow-hidden z-10"
             >
               <button 
                 onClick={() => setDeleteConfirmImg(null)}
@@ -609,16 +609,16 @@ const Profile = () => {
               </button>
 
               <div className="text-center">
-                <div className="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6 border border-red-100">
-                  <AlertTriangle className="w-8 h-8 text-red-500" />
+                <div className="w-14 md:w-16 h-14 md:h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6 border border-red-100">
+                  <AlertTriangle className="w-7 md:w-8 h-7 md:h-8 text-red-500" />
                 </div>
 
-                <h3 className="text-2xl font-black text-slate-900 mb-2">Remove Project?</h3>
+                <h3 className="text-xl md:text-2xl font-black text-slate-900 mb-2">Remove Project?</h3>
                 <p className="text-slate-500 text-sm leading-relaxed mb-6 px-4">
                   Are you sure you want to delete this image from your portfolio? This action is permanent and cannot be undone.
                 </p>
 
-                <div className="w-full h-40 rounded-2xl overflow-hidden mb-8 border border-slate-100 shadow-inner relative">
+                <div className="w-full h-32 md:h-40 rounded-2xl overflow-hidden mb-6 md:mb-8 border border-slate-100 shadow-inner relative">
                   <img 
                     src={deleteConfirmImg} 
                     alt="Deleting portfolio preview" 

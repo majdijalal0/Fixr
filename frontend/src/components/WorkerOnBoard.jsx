@@ -76,25 +76,25 @@ const WorkerOnboarding = () => {
     <div className="min-h-screen bg-slate-50 py-12 px-4">
       <div className="max-w-3xl mx-auto bg-white rounded-[2.5rem] shadow-xl shadow-slate-200/60 overflow-hidden">
         
-        <div className="bg-slate-900 p-8 text-white flex justify-between items-center">
+        <div className="bg-slate-900 p-6 md:p-8 text-white flex justify-between items-center">
           <div>
-            <h1 className="text-2xl font-black">Professional Onboarding</h1>
+            <h1 className="text-xl md:text-2xl font-black">Professional Onboarding</h1>
             <p className="text-slate-400 text-sm font-medium">
               Step {step} of 2: {step === 1 ? 'Expertise' : 'Verification'}
             </p>
           </div>
           <div className="flex gap-2">
-            <div className={`h-2 w-12 rounded-full transition-colors duration-500 ${step >= 1 ? 'bg-amber-400' : 'bg-slate-700'}`} />
-            <div className={`h-2 w-12 rounded-full transition-colors duration-500 ${step >= 2 ? 'bg-amber-400' : 'bg-slate-700'}`} />
+            <div className={`h-2 w-8 md:w-12 rounded-full transition-colors duration-500 ${step >= 1 ? 'bg-amber-400' : 'bg-slate-700'}`} />
+            <div className={`h-2 w-8 md:w-12 rounded-full transition-colors duration-500 ${step >= 2 ? 'bg-amber-400' : 'bg-slate-700'}`} />
           </div>
         </div>
 
-        <form className="p-10" onSubmit={(e) => e.preventDefault()}>
+        <form className="p-6 md:p-10" onSubmit={(e) => e.preventDefault()}>
           {step === 1 && (
             <div className="space-y-8 animate-in fade-in slide-in-from-right-4 duration-500">
               
               <div>
-                <label className="block text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                <label className="block text-base md:text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
                   <Hammer className="text-amber-500" size={20} /> What is your primary trade?
                 </label>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -106,8 +106,8 @@ const WorkerOnboarding = () => {
                         type="button"
                         onClick={() => setSelectedCategory(cat)}
                         className={`
-                          relative py-4 px-4 rounded-2xl font-bold transition-all duration-200 
-                          flex items-center justify-center gap-2 overflow-hidden
+                          relative py-3 md:py-4 px-3 md:px-4 rounded-2xl font-bold transition-all duration-200 
+                          flex items-center justify-center gap-2 overflow-hidden text-sm md:text-base
                           ${isSelected 
                             ? 'bg-amber-500 text-white shadow-lg shadow-amber-200 ring-2 ring-amber-500 scale-[1.02]' 
                             : 'bg-white text-slate-600 border-2 border-slate-100 hover:border-amber-300 hover:bg-amber-50'
@@ -123,7 +123,7 @@ const WorkerOnboarding = () => {
                 </div>
 
                 {selectedCategory === 'Other' && (
-                  <div className="mt-6 p-5 bg-amber-50/50 rounded-2xl border border-amber-100 animate-in fade-in slide-in-from-top-2 duration-300">
+                  <div className="mt-6 p-4 md:p-5 bg-amber-50/50 rounded-2xl border border-amber-100 animate-in fade-in slide-in-from-top-2 duration-300">
                     <label className="block text-sm font-bold text-slate-700 mb-2">Enter your custom trade</label>
                     <input 
                       type="text"
@@ -136,7 +136,7 @@ const WorkerOnboarding = () => {
                 )}
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 <div>
                   <label className="block text-sm font-bold text-slate-700 mb-2">Years of Experience</label>
                   <select 
@@ -181,7 +181,7 @@ const WorkerOnboarding = () => {
 
           {step === 2 && (
             <div className="space-y-8 animate-in fade-in slide-in-from-right-4 duration-500">
-              <div className="p-6 bg-amber-50 rounded-2xl border border-amber-100 flex gap-4">
+              <div className="p-5 md:p-6 bg-amber-50 rounded-2xl border border-amber-100 flex gap-4">
                 <BadgeCheck className="text-amber-600 shrink-0" size={24} />
                 <p className="text-sm text-amber-800 leading-relaxed font-medium">
                   To ensure quality, you can upload a valid ID or Business License, or skip this step to upload it later. All submitted documents are encrypted.
@@ -191,7 +191,7 @@ const WorkerOnboarding = () => {
               <div>
                 <label className="block text-sm font-bold text-slate-700 mb-4">Upload Professional Certification / ID (Optional)</label>
                 
-                <div className="relative border-2 border-dashed border-slate-200 rounded-3xl p-12 text-center hover:border-amber-400 transition-all cursor-pointer group bg-slate-50/50">
+                <div className="relative border-2 border-dashed border-slate-200 rounded-3xl p-8 md:p-12 text-center hover:border-amber-400 transition-all cursor-pointer group bg-slate-50/50">
                   <input 
                     type="file" 
                     id="certificate-upload"
@@ -199,15 +199,15 @@ const WorkerOnboarding = () => {
                     className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                     onChange={handleFileChange}
                   />
-                  <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 transition-colors shadow-sm ${formData.certification ? 'bg-green-100' : 'bg-white group-hover:bg-amber-50'}`}>
+                  <div className={`w-14 md:w-16 h-14 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4 transition-colors shadow-sm ${formData.certification ? 'bg-green-100' : 'bg-white group-hover:bg-amber-50'}`}>
                     <CheckCircle2 className={`${formData.certification ? 'text-green-500' : 'text-slate-400 group-hover:text-amber-500'} transition-colors`} />
                   </div>
                   
                   {formData.certification ? (
-                     <div className="text-green-600 font-bold break-all">{formData.certification.name}</div>
+                     <div className="text-green-600 font-bold text-sm md:text-base break-all">{formData.certification.name}</div>
                   ) : (
                     <>
-                      <p className="text-slate-600 font-bold">Click to upload or drag and drop</p>
+                      <p className="text-slate-600 font-bold text-sm md:text-base">Click to upload or drag and drop</p>
                       <p className="text-slate-400 text-xs mt-1">PDF, JPG or PNG (max. 10MB)</p>
                     </>
                   )}
@@ -226,11 +226,11 @@ const WorkerOnboarding = () => {
                 </div>
               )}
 
-              <div className="flex gap-4">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <button 
                   type="button"
                   onClick={() => setStep(1)} 
-                  className="flex-1 py-4 text-slate-600 font-bold hover:bg-slate-50 rounded-2xl transition-all"
+                  className="w-full sm:flex-1 py-4 text-slate-600 font-bold hover:bg-slate-50 rounded-2xl transition-all"
                   disabled={formData.isSubmitting}
                 >
                   Back
@@ -239,7 +239,7 @@ const WorkerOnboarding = () => {
                   type="button"
                   onClick={handleSubmit}
                   disabled={formData.isSubmitting}
-                  className={`flex-[2] py-4 bg-slate-900 text-white font-black rounded-2xl transition-all shadow-xl hover:bg-black active:scale-95
+                  className={`w-full sm:flex-[2] py-4 bg-slate-900 text-white font-black rounded-2xl transition-all shadow-xl hover:bg-black active:scale-95
                     ${formData.isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}
                   `}
                 >

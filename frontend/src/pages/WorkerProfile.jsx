@@ -122,8 +122,8 @@ const WorkerProfile = () => {
   const gallery = wp.gallery || [];
 
   return (
-    <div className="min-h-screen pt-24 pb-16 bg-slate-50 font-sans relative">
-      <div className="absolute top-10  sm:left-8 lg:left-12 z-20 mt-2">
+    <div className="min-h-screen pt-20 md:pt-24 pb-16 bg-slate-50 font-sans relative">
+      <div className="px-4 sm:px-6 lg:px-8 pt-4 md:pt-2">
         <button
           onClick={() => navigate(-1)}
           className="inline-flex items-center gap-2 text-slate-500 hover:text-[#FFB800] font-semibold transition-colors bg-white/60 backdrop-blur-md py-2 px-4 rounded-full shadow-sm hover:shadow-md border border-slate-200/60"
@@ -133,8 +133,8 @@ const WorkerProfile = () => {
         </button>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
-        <div className="grid grid-cols-12 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 md:pt-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
           
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -142,39 +142,39 @@ const WorkerProfile = () => {
             className="col-span-12 lg:col-span-4"
           >
             <div className="bg-white/80 backdrop-blur-md rounded-3xl shadow-sm border border-slate-200/60 overflow-visible relative transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-              <div className="pt-24 pb-8 px-6 text-center">
-                <div className="absolute -top-12 left-1/2 -translate-x-1/2">
+              <div className="pt-20 md:pt-24 pb-6 md:pb-8 px-4 md:px-6 text-center">
+                <div className="absolute -top-10 md:-top-12 left-1/2 -translate-x-1/2">
                   <div className="relative">
                     <img
                       src={avatarUrl}
                       alt={worker.name}
-                      className="w-32 h-32 rounded-full object-cover ring-4 ring-white shadow-xl"
+                      className="w-28 h-28 md:w-32 md:h-32 rounded-full object-cover ring-4 ring-white shadow-xl"
                     />
                     
                   </div>
                 </div>
 
                 <div className="mt-2">
-                  <h1 className="text-3xl font-black text-slate-900 tracking-tight">{worker.name}</h1>
+                  <h1 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight">{worker.name}</h1>
                   <p className="text-[#FFB800] font-bold uppercase tracking-widest text-xs mt-1 mb-4">{wp.service || 'Professional'}</p>
                   
                   
 
-                  <div className="flex justify-between items-center bg-slate-50/50 rounded-2xl p-4 border border-slate-100">
+                  <div className="flex justify-between items-center bg-slate-50/50 rounded-2xl p-3 md:p-4 border border-slate-100">
                     <div className="text-center">
-                      <p className="text-xl font-mono font-bold text-slate-900 flex items-center justify-center gap-1">
+                      <p className="text-lg md:text-xl font-mono font-bold text-slate-900 flex items-center justify-center gap-1">
                         {wp.rating || '0.0'}
                       </p>
                       <p className="text-[10px] uppercase font-bold text-slate-400 tracking-wider mt-1">Rating</p>
                     </div>
                     <div className="w-px h-8 bg-slate-200"></div>
                     <div className="text-center">
-                      <p className="text-xl font-mono font-bold text-slate-900">${wp.hourlyRate || '0'}</p>
+                      <p className="text-lg md:text-xl font-mono font-bold text-slate-900">${wp.hourlyRate || '0'}</p>
                       <p className="text-[10px] uppercase font-bold text-slate-400 tracking-wider mt-1">/Hour</p>
                     </div>
                     <div className="w-px h-8 bg-slate-200"></div>
                     <div className="text-center">
-                      <p className="text-xl font-mono font-bold text-slate-900">
+                      <p className="text-lg md:text-xl font-mono font-bold text-slate-900">
                         {String(wp.experience || '0').toLowerCase().includes('less than 1') 
                           ? '<1' 
                           : String(wp.experience || '0').replace(/[^0-9+\-]/g, '') || '0'}
@@ -193,7 +193,7 @@ const WorkerProfile = () => {
               </div>
             </div>
             
-            <div className="bg-white/80 backdrop-blur-md rounded-3xl shadow-sm border border-slate-200/60 p-6 mt-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+            <div className="bg-white/80 backdrop-blur-md rounded-3xl shadow-sm border border-slate-200/60 p-5 md:p-6 mt-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4">Direct Contact</h3>
                <div className="space-y-3">
                   <a href="#" className="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100">
@@ -211,13 +211,13 @@ const WorkerProfile = () => {
             transition={{ delay: 0.15 }}
             className="col-span-12 lg:col-span-8 flex flex-col gap-6"
           >
-            <div className="bg-white/80 backdrop-blur-md rounded-3xl p-8 shadow-sm border border-slate-200/60 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+            <div className="bg-white/80 backdrop-blur-md rounded-3xl p-6 md:p-8 shadow-sm border border-slate-200/60 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
               <div className="flex items-center justify-between mb-6">
-                 <h2 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-                   <ImageIcon className="w-6 h-6 text-[#FFB800]" />
+                 <h2 className="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
+                   <ImageIcon className="w-5 md:w-6 h-5 md:h-6 text-[#FFB800]" />
                    Featured Work
                  </h2>
-                 <span className="text-sm font-bold text-[#FFB800] bg-orange-50 px-3 py-1 rounded-full border border-orange-100">{gallery.length} Projects</span>
+                 <span className="text-xs md:text-sm font-bold text-[#FFB800] bg-orange-50 px-3 py-1 rounded-full border border-orange-100">{gallery.length} Projects</span>
               </div>
               
               {gallery.length > 0 ? (
@@ -225,7 +225,7 @@ const WorkerProfile = () => {
                   {gallery.slice(0, 3).map((url, i) => (
                     <div
                       key={i}
-                      className="group relative h-48 rounded-2xl overflow-hidden cursor-pointer shadow-sm"
+                      className="group relative h-40 md:h-48 rounded-2xl overflow-hidden cursor-pointer shadow-sm"
                       onClick={() => setLightboxImg(url)}
                     >
                       <img src={url} alt={`Work sample ${i + 1}`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
@@ -239,21 +239,21 @@ const WorkerProfile = () => {
                   ))}
                 </div>
               ) : (
-                <div className="text-center py-12 border-2 border-dashed border-slate-200 rounded-2xl bg-slate-50/50">
-                  <ImageIcon className="w-10 h-10 text-slate-300 mx-auto mb-3" />
+                <div className="text-center py-10 md:py-12 border-2 border-dashed border-slate-200 rounded-2xl bg-slate-50/50">
+                  <ImageIcon className="w-8 md:w-10 h-8 md:h-10 text-slate-300 mx-auto mb-3" />
                   <p className="text-slate-500 font-medium">No portfolio images uploaded yet.</p>
                 </div>
               )}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white/80 backdrop-blur-md rounded-3xl p-8 shadow-sm border border-slate-200/60 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
+                <div className="bg-white/80 backdrop-blur-md rounded-3xl p-6 md:p-8 shadow-sm border border-slate-200/60 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between">
                   <div>
-                      <h2 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+                      <h2 className="text-lg md:text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
                           <CheckCircle2 className="w-5 h-5 text-[#FFB800]" /> About
                       </h2>
                       {wp.bio ? (
-                        <p className="text-slate-600 leading-relaxed text-[15px]">{wp.bio}</p>
+                        <p className="text-slate-600 leading-relaxed text-sm md:text-[15px]">{wp.bio}</p>
                       ) : (
                         <p className="text-slate-400 italic">This professional hasn't added a bio yet.</p>
                       )}
@@ -261,8 +261,8 @@ const WorkerProfile = () => {
                 </div>
 
                 <div className="flex flex-col gap-6">
-                    <div className="bg-white/80 backdrop-blur-md rounded-3xl p-8 shadow-sm border border-slate-200/60 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                      <h2 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+                    <div className="bg-white/80 backdrop-blur-md rounded-3xl p-6 md:p-8 shadow-sm border border-slate-200/60 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                      <h2 className="text-lg md:text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
                         <Briefcase className="w-5 h-5 text-[#FFB800]" /> Expertise
                       </h2>
                       <div className="flex flex-wrap gap-2">
@@ -286,10 +286,10 @@ const WorkerProfile = () => {
                     </div>
 
                     {reviews.length > 0 && (
-                        <div className="bg-slate-900 rounded-3xl p-8 shadow-md border border-slate-800 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative overflow-hidden flex-1 flex flex-col justify-center">
-                            <Quote className="absolute -top-4 -right-2 w-24 h-24 text-slate-800/50 rotate-12" />
+                        <div className="bg-slate-900 rounded-3xl p-6 md:p-8 shadow-md border border-slate-800 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative overflow-hidden flex-1 flex flex-col justify-center">
+                            <Quote className="absolute -top-4 -right-2 w-20 md:w-24 h-20 md:h-24 text-slate-800/50 rotate-12" />
                             <h2 className="text-sm font-bold text-slate-400 mb-4 uppercase tracking-wider relative z-10">Client Feedback</h2>
-                            <p className="text-white font-serif text-lg leading-snug italic relative z-10">
+                            <p className="text-white font-serif text-base md:text-lg leading-snug italic relative z-10">
                                 "{reviews[0].comment.length > 100 ? reviews[0].comment.substring(0, 100) + '...' : reviews[0].comment}"
                             </p>
                             <div className="mt-4 flex items-center justify-between relative z-10">
@@ -305,19 +305,19 @@ const WorkerProfile = () => {
                 </div>
             </div>
 
-            <div className="bg-white/80 backdrop-blur-md rounded-3xl p-8 shadow-sm border border-slate-200/60 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-              <div className="flex items-center justify-between mb-8">
-                 <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
+            <div className="bg-white/80 backdrop-blur-md rounded-3xl p-6 md:p-8 shadow-sm border border-slate-200/60 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+              <div className="flex items-center justify-between mb-6 md:mb-8">
+                 <h2 className="text-lg md:text-xl font-bold text-slate-900 flex items-center gap-2">
                    <Star className="w-5 h-5 text-[#FFB800] fill-[#FFB800]" />
                    All Reviews
                  </h2>
-                 <span className="px-3 py-1 bg-slate-100 text-slate-700 font-bold text-sm rounded-full border border-slate-200">
+                 <span className="px-3 py-1 bg-slate-100 text-slate-700 font-bold text-xs md:text-sm rounded-full border border-slate-200">
                     {worker.workerProfile?.ratingCount || 0} Total
                  </span>
               </div>
 
               {user && user.role !== 'worker' && (
-                <form onSubmit={handleReviewSubmit} className="mb-8 p-6 bg-slate-50/80 backdrop-blur-sm rounded-2xl border border-slate-200/80">
+                <form onSubmit={handleReviewSubmit} className="mb-8 p-4 md:p-6 bg-slate-50/80 backdrop-blur-sm rounded-2xl border border-slate-200/80">
                   <h3 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
                     <MessageSquare className="w-5 h-5 text-slate-400" /> Share your experience
                   </h3>
@@ -329,7 +329,7 @@ const WorkerProfile = () => {
                         onClick={() => setRatingInput(star)}
                         className={`p-1.5 transition-colors duration-200 ${ratingInput >= star ? 'text-[#FFB800]' : 'text-slate-300 hover:text-yellow-300'}`}
                       >
-                        <Star className={`w-7 h-7 ${ratingInput >= star ? 'fill-[#FFB800]' : ''}`} />
+                        <Star className={`w-6 md:w-7 h-6 md:h-7 ${ratingInput >= star ? 'fill-[#FFB800]' : ''}`} />
                       </button>
                     ))}
                   </div>
@@ -337,13 +337,13 @@ const WorkerProfile = () => {
                     value={commentInput}
                     onChange={(e) => setCommentInput(e.target.value)}
                     placeholder="Tell us about the service..."
-                    className="w-full p-4 rounded-xl border border-slate-200/80 focus:ring-2 focus:ring-[#FFB800] focus:border-transparent outline-none resize-none mb-4 bg-white"
+                    className="w-full p-3 md:p-4 rounded-xl border border-slate-200/80 focus:ring-2 focus:ring-[#FFB800] focus:border-transparent outline-none resize-none mb-4 bg-white"
                     rows="3"
                   />
                   <button
                     type="submit"
                     disabled={isSubmittingReview || !ratingInput || !commentInput.trim()}
-                    className="flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 px-6 rounded-xl ml-auto disabled:opacity-50 transition-colors"
+                    className="w-full sm:w-auto flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 px-6 rounded-xl ml-auto disabled:opacity-50 transition-colors"
                   >
                     {isSubmittingReview ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
                     Submit Review
@@ -354,14 +354,14 @@ const WorkerProfile = () => {
               <div className="space-y-4">
                 {reviews.length > 0 ? (
                   reviews.map((review) => (
-                    <div key={review._id} className="p-6 rounded-2xl border border-slate-100 bg-white shadow-sm hover:border-slate-200 transition-colors">
+                    <div key={review._id} className="p-4 md:p-6 rounded-2xl border border-slate-100 bg-white shadow-sm hover:border-slate-200 transition-colors">
                       <div className="flex items-start justify-between mb-3">
                         <div className="flex items-center gap-3">
-                           <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center font-bold text-slate-500 uppercase">
+                           <div className="w-9 md:w-10 h-9 md:h-10 rounded-full bg-slate-100 flex items-center justify-center font-bold text-slate-500 uppercase">
                                {review.userId?.name?.charAt(0) || 'U'}
                            </div>
                            <div>
-                               <span className="block font-bold text-slate-900">{review.userId?.name || 'User'}</span>
+                               <span className="block font-bold text-slate-900 text-sm md:text-base">{review.userId?.name || 'User'}</span>
                                <span className="block text-xs text-slate-400 mt-0.5">{new Date(review.createdAt).toLocaleDateString()}</span>
                            </div>
                         </div>

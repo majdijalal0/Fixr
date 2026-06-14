@@ -3,20 +3,20 @@ import { Link } from 'react-router-dom';
 
 const Card = ({ worker }) => {
   return (
-    <div className="max-w-sm overflow-hidden rounded-2xl bg-white shadow-lg border border-zinc-100 transition-all hover:shadow-xl">
-      <div className="flex items-center gap-4 p-6">
+    <div className="w-full overflow-hidden rounded-2xl bg-white shadow-lg border border-zinc-100 transition-all hover:shadow-xl">
+      <div className="flex items-center gap-4 p-4 md:p-6">
         <img 
           src={worker.avatar} 
           alt={worker.name} 
-          className="h-14 w-14 rounded-full object-cover ring-2 ring-zinc-50"  
+          className="h-12 w-12 md:h-14 md:w-14 rounded-full object-cover ring-2 ring-zinc-50"  
         />
-        <div>
-          <h1 className="text-lg font-bold text-zinc-900">{worker.name}</h1>
-          <p className="text-sm font-medium text-blue-600">{worker.specialty}</p>
+        <div className="min-w-0">
+          <h1 className="text-base md:text-lg font-bold text-zinc-900 truncate">{worker.name}</h1>
+          <p className="text-sm font-medium text-blue-600 truncate">{worker.specialty}</p>
         </div>
       </div>
 
-      <div className="flex items-center justify-between border-y border-zinc-50 bg-zinc-50/50 px-6 py-3">
+      <div className="flex items-center justify-between border-y border-zinc-50 bg-zinc-50/50 px-4 md:px-6 py-3">
         <div className="flex items-center gap-1">
           <span className="text-yellow-500 text-sm">★</span>
           <span className="text-sm font-bold text-zinc-700">{worker.rating}</span>
@@ -27,7 +27,7 @@ const Card = ({ worker }) => {
         </div>
       </div>
 
-      <div className="flex items-center justify-between p-6">
+      <div className="flex items-center justify-between p-4 md:p-6">
         <div className="flex flex-col gap-1">
           <span className={`text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 ${
             worker.activeTasksCount === 0 ? 'text-emerald-500' : 'text-amber-500'
@@ -43,7 +43,7 @@ const Card = ({ worker }) => {
         </div>
         <Link
           to={`/workers/${worker.id}`}
-          className="rounded-lg bg-zinc-900 px-4 py-2 text-sm font-semibold text-white hover:bg-amber-500 transition-colors"
+          className="rounded-lg bg-zinc-900 px-3 md:px-4 py-2 text-sm font-semibold text-white hover:bg-amber-500 transition-colors"
         >
           View Profile
         </Link>
@@ -52,4 +52,4 @@ const Card = ({ worker }) => {
   );
 };
 
-export default Card;
+export default Card;

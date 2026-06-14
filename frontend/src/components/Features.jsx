@@ -16,27 +16,27 @@ const Features = () => {
   ];
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-white relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-mesh opacity-50 pointer-events-none transform translate-x-1/3 -translate-y-1/3" />
       
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-16 animate-fade-in-up">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
+        <div className="text-center mb-12 md:mb-16 animate-fade-in-up">
           <h2 className="text-amber-500 font-bold uppercase tracking-widest text-sm mb-3">Why choose Fixr Premium</h2>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900">
             Premium Service, <br className="hidden md:block"/>
             <span className="text-slate-500">Zero Headaches.</span>
           </h1>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {features.map((feat, idx) => (
             <div 
               key={idx} 
-              className="bg-white border-l-4 border-amber-500 p-8 shadow-sm rounded-r-2xl hover:shadow-md transition-shadow duration-300"
+              className="bg-white border-l-4 border-amber-500 p-6 md:p-8 shadow-sm rounded-r-2xl hover:shadow-md transition-shadow duration-300"
             >
               <div className="flex items-center gap-4 mb-4">
                 {feat.icon}
-                <h3 className="text-xl font-bold text-slate-800">{feat.title}</h3>
+                <h3 className="text-lg md:text-xl font-bold text-slate-800">{feat.title}</h3>
               </div>
               <p className="text-slate-500 leading-relaxed text-sm">
                 {feat.description}

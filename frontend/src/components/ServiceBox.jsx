@@ -6,12 +6,12 @@ const ServiceBox = ({ service, onClick, isSelected }) => {
   const LucideIcon = Icons[service.icon] || Icons.Wrench; 
 
   return (
-    <div className="relative group w-full max-w-[180px] ">
+    <div className="relative group w-full">
       <button
         onClick={onClick}
         className={`
           relative flex flex-col items-center justify-center w-full
-          h-36 rounded-[min(1.5rem,15%)] p-4
+          h-28 md:h-36 rounded-[min(1.5rem,15%)] p-3 md:p-4
           transition-all duration-300 ease-out
           transform hover:-translate-y-2
           cursor-pointer

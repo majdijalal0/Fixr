@@ -33,34 +33,34 @@ const Steps = () => {
   ];
 
   return (
-    <section className='py-20 px-6 max-w-7xl mx-auto'>
-      <div className='flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4'>
+    <section className='py-16 md:py-20 px-4 md:px-6 max-w-7xl mx-auto'>
+      <div className='flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-4'>
         <div>
           <h2 className='text-amber-500 font-bold uppercase tracking-widest text-sm mb-2'>Process</h2>
-          <h1 className='text-4xl md:text-5xl font-extrabold text-slate-900'>
+          <h1 className='text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900'>
             How it <span className='text-amber-500'>works</span>
           </h1>
         </div>
-        <p className='text-slate-500 max-w-md text-lg'>
+        <p className='text-slate-500 max-w-md text-base md:text-lg'>
           Getting your home projects done is easier than ever. Book a trusted professional in minutes.
         </p>
       </div>
 
-      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8'>
         {stepsData.map((step, index) => (
           <div 
             key={index}
-            className='group relative flex flex-col items-center text-center p-8 bg-white border border-slate-100 rounded-3xl shadow-xl shadow-slate-200/50 hover:shadow-amber-200/60 transition-all duration-500 hover:-translate-y-2'
+            className='group relative flex flex-col items-center text-center p-6 md:p-8 bg-white border border-slate-100 rounded-3xl shadow-xl shadow-slate-200/50 hover:shadow-amber-200/60 transition-all duration-500 hover:-translate-y-2'
           >
             <div className='absolute -top-4 -right-4 w-12 h-12 bg-amber-400 text-white flex items-center justify-center rounded-2xl font-black shadow-lg transform rotate-12 group-hover:rotate-0 transition-transform'>
               {step.number}
             </div>
 
             <div className='mb-6 p-4 bg-amber-50 rounded-2xl group-hover:bg-amber-100 transition-colors'>
-              <img src={step.img} alt={step.title} className='w-16 h-16 object-contain' />
+              <img src={step.img} alt={step.title} className='w-14 h-14 md:w-16 md:h-16 object-contain' />
             </div>
 
-            <h2 className='text-xl font-bold text-slate-800 mb-3'>{step.title}</h2>
+            <h2 className='text-lg md:text-xl font-bold text-slate-800 mb-3'>{step.title}</h2>
             <p className='text-slate-500 text-sm leading-relaxed'>
               {step.desc}
             </p>

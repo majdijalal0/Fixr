@@ -3,10 +3,11 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import brandIcon from '../assets/icons/logo.png';
 import Account from './Account';
 import { HashLink } from 'react-router-hash-link';
-import { LayoutDashboard } from 'lucide-react';
+import { LayoutDashboard, Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [user, setUser] = useState(null);
   const location = useLocation(); 
   const navigate = useNavigate();
@@ -17,6 +18,10 @@ const Navbar = () => {
       setUser(JSON.parse(storedUser));
     }
   }, [location]); 
+
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location]);
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -34,8 +39,8 @@ const Navbar = () => {
 
   return (
     <>
-    <nav className="sticky top-0 z-[100] flex items-center justify-between px-8 py-3 glass bg-white/80">
-      <Link to="/" className="flex items-center gap-2 group transition-transform hover:scale-105">
+    <nav className="sticky top-0 z-[100] flex items-center justify-between px-4 md:px-8 py-3 glass bg-white/80 relative">
+      <Link to="/" className="flex items-center gap-2 group transition-transform hover:scale-105 shrink-0">
         <div className="p-1.5 bg-white border border-slate-100 rounded-xl shadow-sm transition-transform group-hover:rotate-3">
           <img 
             src={brandIcon} 
@@ -47,6 +52,14 @@ const Navbar = () => {
           fixr<span className="text-amber-500">.</span>
         </span>
       </Link>
+
+      <button
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        className="md:hidden p-2 text-slate-700 hover:text-amber-500 transition-colors"
+        aria-label="Toggle menu"
+      >
+        {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+      </button>
 
       <div className="hidden md:block">
         <ul className="flex items-center space-x-10">
@@ -67,22 +80,22 @@ const Navbar = () => {
         </ul>
       </div>
 
-        <div className="flex items-center space-x-6">
-          {(!user || user.role !== 'worker') && (
-            <HashLink 
-              smooth 
-              to="/#joinaspro"
-              className="hidden lg:block text-[15px] font-semibold text-slate-700 transition-colors duration-300 hover:text-amber-500"
-            >
-              Become a Pro
-            </HashLink>
-          )}
+      <div className="hidden md:flex items-center space-x-6">
+        {(!user || user.role !== 'worker') && (
+          <HashLink 
+            smooth 
+            to="/#joinaspro"
+            className="text-[15px] font-semibold text-slate-700 transition-colors duration-300 hover:text-amber-500"
+          >
+            Become a Pro
+          </HashLink>
+        )}
 
         {user ? (
           <div className="flex items-center space-x-3">
             <Link
               to="/profile"
-              className={`hidden sm:inline-flex items-center gap-2 px-4 py-2 text-[15px] font-semibold rounded-xl transition-all duration-300
+              className={`inline-flex items-center gap-2 px-4 py-2 text-[15px] font-semibold rounded-xl transition-all duration-300
                 ${
                   location.pathname === '/profile'
                     ? 'bg-amber-100 text-amber-700'
@@ -94,9 +107,9 @@ const Navbar = () => {
             </Link>
             <button 
               onClick={handleLogout} 
-              className="btn-primary !bg-red-500 hover:!bg-red-600 !text-white !border-none !shadow-red-200"
+              className="bg-white border border-slate-900 text-slate-900 text-sm px-4 py-1.5 rounded-md hover:bg-slate-100 transition-colors"
             >
-              Logout
+              Log out
             </button>
           </div>
         ) : (
@@ -108,9 +121,67 @@ const Navbar = () => {
           </button>
         )}
       </div>
-    </nav>
-    <Account isOpen={isOpen} setIsOpen={setIsOpen} /> 
 
+      {mobileMenuOpen && (
+        <div className="absolute top-full left-0 right-0 z-50 bg-white md:hidden border-t border-slate-100 shadow-lg overflow-y-auto max-h-[calc(100vh-80px)]">
+          <div className="px-4 py-4 space-y-1">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                to={link.path}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block py-3 px-4 rounded-xl font-semibold transition-colors ${
+                  location.pathname === link.path
+                    ? 'bg-amber-50 text-amber-700'
+                    : 'text-slate-700 hover:bg-slate-50'
+                }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+            {(!user || user.role !== 'worker') && (
+              <HashLink
+                smooth
+                to="/#joinaspro"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block py-3 px-4 rounded-xl font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
+              >
+                Become a Pro
+              </HashLink>
+            )}
+          </div>
+          <div className="px-4 py-4 border-t border-slate-100 space-y-3">
+            {user ? (
+              <>
+                <Link
+                  to="/profile"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-amber-50 text-amber-700 font-semibold rounded-xl transition-colors"
+                >
+                  <LayoutDashboard className="w-4 h-4" />
+                  Dashboard
+                </Link>
+                <button
+                  onClick={() => { handleLogout(); setMobileMenuOpen(false); }}
+                  className="w-full bg-white border border-slate-900 text-slate-900 text-sm px-4 py-3 rounded-md hover:bg-slate-100 transition-colors font-semibold"
+                >
+                  Log out
+                </button>
+              </>
+            ) : (
+              <button
+                onClick={() => { setIsOpen(true); setMobileMenuOpen(false); }}
+                className="w-full btn-primary"
+              >
+                Login
+              </button>
+            )}
+          </div>
+        </div>
+      )}
+    </nav>
+
+    <Account isOpen={isOpen} setIsOpen={setIsOpen} /> 
   </>
 );
 };

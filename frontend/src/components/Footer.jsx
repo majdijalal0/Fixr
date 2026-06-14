@@ -6,26 +6,26 @@ const Footer = () => {
     <footer className="relative bg-slate-900 border-t border-slate-800 text-slate-300 overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-2xl h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent"></div>
       
-      <div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 relative z-10">
-        <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="px-4 pt-12 md:pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 relative z-10">
+        <div className="grid gap-8 md:gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
           
           <div className="sm:col-span-2">
             <a href="/" className="inline-flex items-center group">
               <div className="p-2 bg-white rounded-xl shadow-lg transition-transform group-hover:scale-105 group-hover:rotate-3">
-                <img src={logo} alt="logo" className="h-8 w-auto" />
+                <img src={logo} alt="logo" className="h-6 md:h-8 w-auto" />
               </div>
-              <span className="ml-3 text-2xl font-black tracking-tight text-white uppercase">
+              <span className="ml-3 text-xl md:text-2xl font-black tracking-tight text-white uppercase">
                 Fixr<span className="text-amber-400"> Premium</span>
               </span>
             </a>
-            <div className="mt-6 lg:max-w-sm">
+            <div className="mt-4 md:mt-6 lg:max-w-sm">
               <p className="text-sm text-slate-400 leading-relaxed">
                 Connecting homeowners with the finest local professionals. From leaky faucets to full renovations, find the expertise you need to keep your home in perfect shape.
               </p>
             </div>
           </div>
 
-          <div className="space-y-4 text-sm">
+          <div className="space-y-3 md:space-y-4 text-sm">
             <p className="text-base font-bold tracking-wide text-white">Get in Touch</p>
             <div className="flex items-center gap-3">
               <span className="font-semibold text-slate-200">Phone:</span>
@@ -41,7 +41,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-3 md:space-y-4">
             <p className="text-base font-bold tracking-wide text-white">Follow Our Work</p>
             <div className="flex items-center space-x-4">
               <a href="/" className="p-2 transition-all duration-300 bg-slate-800 rounded-lg text-slate-400 hover:bg-amber-400 hover:text-slate-900 hover:-translate-y-1 shadow-md">
@@ -59,19 +59,19 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col-reverse justify-between pt-8 pb-10 border-t border-slate-800 lg:flex-row">
-          <p className="text-sm text-slate-500 font-medium">
+        <div className="flex flex-col-reverse justify-between pt-6 md:pt-8 pb-8 md:pb-10 border-t border-slate-800 lg:flex-row">
+          <p className="text-xs md:text-sm text-slate-500 font-medium text-center lg:text-left mt-4 lg:mt-0">
             © {new Date().getFullYear()} Fixr Premium Services Inc. All rights reserved.
           </p>
-          <ul className="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-8 sm:flex-row">
+          <ul className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-8">
             <li>
-              <a href="/" className="text-sm text-slate-400 transition-colors duration-300 hover:text-amber-400">F.A.Q</a>
+              <a href="/" className="text-xs md:text-sm text-slate-400 transition-colors duration-300 hover:text-amber-400">F.A.Q</a>
             </li>
             <li>
-              <a href="/" className="text-sm text-slate-400 transition-colors duration-300 hover:text-amber-400">Privacy Policy</a>
+              <a href="/" className="text-xs md:text-sm text-slate-400 transition-colors duration-300 hover:text-amber-400">Privacy Policy</a>
             </li>
             <li>
-              <a href="/" className="text-sm text-slate-400 transition-colors duration-300 hover:text-amber-400">Terms of Service</a>
+              <a href="/" className="text-xs md:text-sm text-slate-400 transition-colors duration-300 hover:text-amber-400">Terms of Service</a>
             </li>
           </ul>
         </div>
